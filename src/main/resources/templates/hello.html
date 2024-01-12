@@ -3,29 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Foo Template</title>
+    <link rel="stylesheet" href="/css/styles.css" />
 </head>
 <body>
-<div>
-    <div>
-        <form th:action="@{/foo-post}" method="post">
-            <label>
-                <textarea name="message" cols="40" rows="2"></textarea>
-            </label>
-            <br> <input type="submit" value="Save Message"/>
-        </form>
-    </div>
-    <h2>Messages</h2>
-    <ul th:each="message : ${messages}">
-        <li th:text="${message}">msg</li>
-    </ul>
-    <hr>
-    <div>
-        <form th:action="@{/bar}" method="get">
-            <input type="submit" value="Go to Bar Template"/>
-        </form>
-    </div>
-</div>
+<form th:action="@{/check}" method="post">
+    <!-- Email input field with Check button -->
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required/>
+    <button type="button" onclick="showCodeInput()">Check</button>
 
+    <!-- Code input field with Verify button -->
+    <div id="codeInput" style="display: none;">
+        <label for="code">Code:</label>
+        <input type="text" id="code" name="code" required/>
+        <button id="verifyButton" type="button" onclick="verifyCode()">Verify</button>
+    </div>
+</form>
+
+<script th:inline="javascript">
+    /* Thymeleaf inline script to handle the visibility of elements */
+    function showCodeInput() {
+        document.getElementById('codeInput').style.display = 'block';
+    }
+
+    function verifyCode() {
+        // Add your verification logic here
+        // For simplicity, let's assume the verification is successful
+        document.getElementById('verifyButton').style.color = '#00ff00';
+    }
+</script>
 
 </body>
 </html>
