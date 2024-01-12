@@ -1,0 +1,7 @@
+
+/.idea/
+/target/
+
+*.properties
+*.iml
+.env

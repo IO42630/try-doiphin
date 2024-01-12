@@ -1,0 +1,12 @@
+version: '3'
+services:
+
+    #  See .env for vars.
+    doiphin-boot:
+        container_name: try-doiphin-boot
+        image: io42630/try-doiphin-boot:1.0-SNAPSHOT
+        ports:
+            - "24019:8080"
+            - "5005:5005"
+
+
